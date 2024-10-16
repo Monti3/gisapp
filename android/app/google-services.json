@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "353248459376",
+    "project_id": "gisapp-6c2f7",
+    "storage_bucket": "gisapp-6c2f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353248459376:android:2df556e850e605193b12b5",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOEeREPlLeKQ9mpK6Z3QBKdT60mJVdEvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353248459376:android:95b4a7601842b26f3b12b5",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOEeREPlLeKQ9mpK6Z3QBKdT60mJVdEvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
