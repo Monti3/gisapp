@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple.shade50,
+      backgroundColor: Colors.white,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Text(
           'gisapp',
@@ -95,5 +95,6 @@ class OptionButton extends StatelessWidget {
       ),
     );
   }
+  
 }
 

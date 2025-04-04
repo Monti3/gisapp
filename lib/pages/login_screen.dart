@@ -31,11 +31,11 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 20),
                 ),
                 SizedBox(height: height / 10),
-                FillZone(_mailController, 'Email', false),
+                FillZone(_mailController, 'Email', false, Icon(Icons.person)),
                 const SizedBox(
                   height: 10,
                 ),
-                FillZone(_passwordController, 'Contraseña', true),
+                FillZone(_passwordController, 'Contraseña', true, Icon(Icons.password_rounded)),
                 const SizedBox(height: 10),
                 Container(
                   width: double.infinity,

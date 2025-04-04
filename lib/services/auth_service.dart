@@ -64,8 +64,7 @@ class AuthService {
         message = 'No se encontro un usuario con ese Email.';
       } else if (e.code == 'wrong-password') {
         message = 'Contraseña incorrecta';
-      }
-      else{
+      } else {
         message = 'Introduzca en formato valido';
       }
       print('mensge $message');
@@ -95,5 +94,46 @@ class AuthService {
       return false;
     }
     return true;
+  }
+
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2192748328.
+  Future passwordReset(
+      {required String email, required BuildContext context}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      print('Correo de restablecimiento de contraseña enviado');
+      return Fluttertoast.showToast(
+        msg: 'Se le envió un correo para restablecer su contraseña.',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.grey,
+        textColor: Colors.white,
+        fontSize: 14.0,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return Fluttertoast.showToast(
+          msg: 'No se encontró un usuario con ese correo.',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 14.0,
+        );
+      } else {
+        // Manejo de otros posibles errores
+        return Fluttertoast.showToast(
+          msg: 'Ocurrió un error. Inténtelo nuevamente.',
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          fontSize: 14.0,
+        );
+      }
+    }
   }
 }

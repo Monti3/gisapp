@@ -23,11 +23,11 @@ class SignupScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            FillZone(controllerEmail, 'Email', false),
+            FillZone(controllerEmail, 'Email', false, Icon(Icons.person)),
             const SizedBox(
               height: 10,
             ),
-            FillZone(controllerPassword, 'Contraseña', true),
+            FillZone(controllerPassword, 'Contraseña', true, Icon(Icons.password)),
             TextButton(
                 onPressed: () async {
                   AuthService authService = AuthService();

@@ -25,7 +25,10 @@ class _SavedExersicesScreenState extends State<SavedExersicesScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back, color: Colors.white,),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
         ),
       ),
       body: FutureBuilder(
@@ -79,7 +82,7 @@ class SavedExcersciceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+     return TextButton(
       onPressed: () {
         Navigator.push(
           context,
@@ -92,12 +95,17 @@ class SavedExcersciceCard extends StatelessWidget {
         height: 60,
         child: Card(
           child: Center(
-              child: Text(
-            'Ejercicios guardados de $topic',
-            style: TextStyle(color: Colors.black),
-          )),
+              child: Column(
+                children: [
+                  Text(
+                              'Ejercicios guardados de $topic',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                ],
+              )),
         ),
       ),
     );
+
   }
 }

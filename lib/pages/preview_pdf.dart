@@ -29,7 +29,7 @@ class _PreviewPdfState extends State<PreviewPdf> {
     WidgetsToImageController controller = WidgetsToImageController();
     Uint8List? bytes;
     bool alreadySaved = false;
-
+    TextEditingController textEditingController = TextEditingController();
     // Crear la lista de Math widgets con claves únicas
     List<Widget> mathList = [
       for (String i in widget.texList) Math.tex(i, key: UniqueKey())
@@ -61,11 +61,6 @@ class _PreviewPdfState extends State<PreviewPdf> {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: Colors.black,
-            child: Icon(Icons.add_task, color: Colors.white),
-          ),
           SizedBox(width: 10),
           !(widget.isSaved)
               ? FloatingActionButton(
@@ -73,18 +68,19 @@ class _PreviewPdfState extends State<PreviewPdf> {
                   onPressed: () async {
                     bytes = await controller.capture();
                     print('add bytes');
-                    if (alreadySaved == false)
-                    {await addExcersice(widget.texList, widget.studentQuantity,
-                        widget.excersicesPerStudent, widget.topic);
-                    Fluttertoast.showToast(
-                        msg: 'Ejercicio guardado',
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.BOTTOM,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.black54,
-                        textColor: Colors.white,
-                        fontSize: 14.0);}
-                        alreadySaved = true; 
+                    if (alreadySaved == false) {
+                      await addExcersice(widget.texList, widget.studentQuantity,
+                          widget.excersicesPerStudent, widget.topic);
+                      Fluttertoast.showToast(
+                          msg: 'Ejercicio guardado',
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.black54,
+                          textColor: Colors.white,
+                          fontSize: 14.0);
+                    }
+                    alreadySaved = true;
                   },
                   child: Icon(
                     Icons.save,
@@ -111,6 +107,24 @@ class _PreviewPdfState extends State<PreviewPdf> {
       ),
     );
   }
+
+  Future<void> _displayTextInputDialog(BuildContext context, textEditingController) async {
+  return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('TextField in Dialog'),
+          content: TextField(
+            onChanged: (value) {
+     
+            },
+            controller: textEditingController,
+            decoration: InputDecoration(hintText: "Text Field in Dialog"),
+          ),
+
+        );
+      });
+}
 }
 
 class Excersice extends StatelessWidget {
@@ -181,6 +195,7 @@ class ExcersiceColumns extends StatelessWidget {
       children: excersiceList,
     );
   }
+
 }
 
 List<List<T>> splitList<T>(List<T> list, int chunkSize) {

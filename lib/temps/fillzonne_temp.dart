@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class FillZone extends StatelessWidget {
-  FillZone(this.controller, this.text, this.isPassword, {super.key});
+  FillZone(this.controller, this.text, this.isPassword, this.icon, {super.key});
 
   TextEditingController controller = TextEditingController();
   final String text; 
   final bool isPassword;
+  final Icon icon; 
   @override
   Widget build(BuildContext context) {
 
@@ -22,16 +23,17 @@ class FillZone extends StatelessWidget {
               TextField(
                 controller: controller,
                 decoration: InputDecoration(
-                  hintText: text,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(18),
-                      borderSide: BorderSide.none),
-                  fillColor: Colors.black.withOpacity(0.1),
-                  filled: true,
-                  prefixIcon: const Icon(
-                    Icons.person,
-                  ),
+                labelText: text,
+                labelStyle: TextStyle(color: Colors.black),
+                border: const OutlineInputBorder(), // Borde normal
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Colors.black,
+                      width: 2.0), // Color y ancho del borde al estar enfocado
                 ),
+                focusColor: Colors
+                    .black, // Esto solo afecta el color de la barra de enfoque en el label
+              ),
                 obscureText: isPassword,
                 cursorColor: Colors.black,
               ),
