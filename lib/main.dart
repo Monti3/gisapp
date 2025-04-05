@@ -22,16 +22,24 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, routes: {
-      '/': (context) => AuthChecker(),
-      '/home_screen': (context) => const HomeScreen(),
-      '/prompter': (context) => const Prompter(),
-      '/hello_screen': (context) => const HelloScreen(),
-      '/signup_screen': (context) => const SignupScreen(),
-      '/login_screen': (context) => LoginScreen(),
-      '/change_password_screen': (context) => const ChangePasswordScreen(),
-      '/saved_excersices_screen': (context) => const SavedExersicesScreen(),
-    });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => AuthChecker(),
+        '/home_screen': (context) => const HomeScreen(),
+        '/prompter': (context) => const Prompter(),
+        '/hello_screen': (context) => const HelloScreen(),
+        '/signup_screen': (context) => const SignupScreen(),
+        '/login_screen': (context) => LoginScreen(),
+        '/change_password_screen': (context) => const ChangePasswordScreen(),
+        '/saved_excersices_screen': (context) => const SavedExersicesScreen(),
+      },
+      theme: ThemeData(
+          colorScheme: ColorScheme.light(
+              background: Colors.white,
+              primary: Colors.white,
+              secondary: Colors.black)),
+    );
   }
 }
 
